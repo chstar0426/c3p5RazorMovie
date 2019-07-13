@@ -1,0 +1,110 @@
+﻿@page
+@model c3p5RazorMovie.Pages.Movies.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>
+    Movies &nbsp;&nbsp;
+    <small><i class="glyphicon glyphicon-hand-right"></i> 영화목록 입니다.</small>
+</h2>
+<hr />
+
+
+@*검색상자*@
+<div class="row" style="margin-bottom:10px">
+    <div class="col-4">
+
+        <a asp-page="Create" asp-route-path="@HttpContext.Request.QueryString" class="btn btn-outline-danger">Create New</a>
+
+    </div>
+    <div class="col-4">
+
+
+    </div>
+    <div class="col-4 text-right">
+        @await Component.InvokeAsync("Searching", Model.searchingVar)
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Gener)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Price)
+            </th>
+            <th>
+                포스트
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Movie)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gener)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @foreach (var fn in item.AttachFiles)
+                {
+                    @Html.DisplayFor(modelItem => fn.FileName) <br />
+
+                }
+
+            </td>
+           
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID" asp-route-path="@HttpContext.Request.QueryString">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID" asp-route-path="@HttpContext.Request.QueryString">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID" asp-route-path="@HttpContext.Request.QueryString">Delete</a>
+
+            
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+@*페이징*@
+<hr />
+
+<div class="text-center">
+    <paging4 url="@HttpContext.Request.Path"
+             page-index="@Model.PageIndex"
+             page-size=3
+             page-etc=''
+             record-count=@Model.TotalCount
+             page-counter=5
+             search-mode='@Model.searchingVar.SearchMode'
+             search-field='@Model.searchingVar.SearchField'
+             search-query='@Model.searchingVar.SearchQuery'>
+    </paging4>
+</div>
+
+
+@section stylesheets {
+    @*font-awasome 설정 cdn*@
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+}

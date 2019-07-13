@@ -1,0 +1,52 @@
+﻿/*-----------------------------------------------*/
+/*.divProgress {
+    background: #fff;
+    border: 1px solid #00a65a;
+    margin-bottom: 10px;
+    padding: 7px;
+}*/
+
+.divProgress > .abort {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 18px;
+    opacity: 0.5;
+}
+
+    .divProgress > .abort:hover {
+        opacity: 1;
+    }
+
+
+.progress-error {
+    /*border: 1px solid #e65442;*/
+    color: #e65442;
+}
+
+
+/*다른스타일의 css*/
+
+.wrapper {
+    width: 500px;
+}
+
+
+
+.prog-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    /*padding: 3px;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);*/
+}
+
+
+
+.prog-bar-fill {
+    display: block;
+    height: 22px;
+    background-color: #659cef;
+    /*border-radius: 3px;
+    transition: width 500ms ease-in-out;*/
+}

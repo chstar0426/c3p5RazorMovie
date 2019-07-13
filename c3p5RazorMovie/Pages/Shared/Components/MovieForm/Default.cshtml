@@ -1,0 +1,50 @@
+﻿@model DataModels.MovieForm
+
+
+<form id="ajaxUploadForm" enctype="multipart/form-data" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @if (Model.FrmType == DataModels.FrmType.Modify)
+    {
+        <input type="hidden" asp-for="Movie.ID" />
+    }
+
+    <div class="form-group">
+        <label asp-for="Movie.Title" class="control-label"></label>
+        <input asp-for="Movie.Title" class="form-control" />
+        <span asp-validation-for="Movie.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.ReleaseDate" class="control-label"></label>
+        <input asp-for="Movie.ReleaseDate" class="form-control" />
+        <span asp-validation-for="Movie.ReleaseDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.Gener" class="control-label"></label>
+        <input asp-for="Movie.Gener" class="form-control" />
+        <span asp-validation-for="Movie.Gener" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.Price" class="control-label"></label>
+        <input asp-for="Movie.Price" class="form-control" />
+        <span asp-validation-for="Movie.Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Movie.AttachFiles" class="control-label">업로드</label>
+        @await Component.InvokeAsync("Uploaders")
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label">보안문자</label>
+        <input id="SecurityText" name="SecurityText" class="form-control" value="" />
+        @await Component.InvokeAsync("SecurityTexts") &nbsp; &nbsp; &nbsp; <span class="text-danger">@Model.ErrorMessage</span>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+        @*<input type="submit" value="저장" class="btn btn-outline-danger" />*@
+        <span> 업로드 컨트롤에 포함된 다양한 저장 버튼을 이용</span> 
+        <a href='./Index@(Model.ReturnUrl)' class="btn btn-outline-secondary">목록</a>
+    </div>
+
+    </form>

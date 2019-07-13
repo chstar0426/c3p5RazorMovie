@@ -1,0 +1,41 @@
+﻿@page
+@model c3p5RazorMovie.Pages.Movies.CreateModel
+
+@{
+
+    var movieForm = new DataModels.MovieForm();
+
+    movieForm.Movie = Model.Movie;
+    movieForm.ErrorMessage = Model.ErrorMessage;   //보안문자를 사용 안하면 필요없음
+    movieForm.FrmType = DataModels.FrmType.Write;
+    movieForm.ReturnUrl = Request.Query["Path"].ToString();
+
+
+    ViewData["Title"] = DataModels.FrmTypeExtensions.ToFriendlyString(movieForm.FrmType);
+
+}
+
+
+<h2>
+    Movies &nbsp;&nbsp;
+    <small><i class="glyphicon glyphicon-hand-right"></i> @DataModels.FrmTypeExtensions.ToFriendlyString(movieForm.FrmType) 입니다.</small>
+</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+        @await Component.InvokeAsync("MovieForm", movieForm)
+    </div>
+</div>
+
+@section stylesheets {
+    <link href="~/css/UploadCtrl.css" rel="stylesheet" />
+
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/UploadCtrl.js"></script>
+
+}

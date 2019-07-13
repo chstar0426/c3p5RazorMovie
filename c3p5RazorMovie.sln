@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "c3p5RazorMovie", "c3p5RazorMovie\c3p5RazorMovie.csproj", "{A6FF2D01-BF60-498E-83EF-7560D194640F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModels", "DataModels\DataModels.csproj", "{0B4D542D-8C8F-4282-A36A-050C55955D74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6FF2D01-BF60-498E-83EF-7560D194640F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6FF2D01-BF60-498E-83EF-7560D194640F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6FF2D01-BF60-498E-83EF-7560D194640F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6FF2D01-BF60-498E-83EF-7560D194640F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B4D542D-8C8F-4282-A36A-050C55955D74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B4D542D-8C8F-4282-A36A-050C55955D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B4D542D-8C8F-4282-A36A-050C55955D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B4D542D-8C8F-4282-A36A-050C55955D74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0A129DE-BFD0-4ADC-A37F-5B88A383B125}
+	EndGlobalSection
+EndGlobal

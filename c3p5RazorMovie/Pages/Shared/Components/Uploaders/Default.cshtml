@@ -1,0 +1,24 @@
+﻿<div class="card">
+    <div class="card-header">
+        Uplad Files - <span id="per"></span>
+        <input type="file" class="file-input" name="ajax_file" id="ajax_file" multiple style="border:1px solid red; display:none;" @*accept="image/*"*@ />
+        <div class="btn-group float-right">
+            <input type="button" value="Browse..." onclick="document.getElementById('ajax_file').click();" class="btn btn-primary btn-sm">
+            <input type="button" value="초기화" onclick="fileReset();" class="btn btn-info btn-sm" />
+            @*파일업로트 테스트*@
+            <input type="button" id="btnUpload" value="click" class="btn btn-danger btn-sm" />
+            @*서버로직으로 저장 테스트*@
+            <input type="button" value="btn_submit(서버)" class="btn btn-danger btn-sm" onclick="btn_submit()" />
+            @*Ajax 저장 테스트*@
+            <input type="submit" value="submit(ajax)" class="btn btn-danger btn-sm" />
+
+        </div>
+ 
+    </div>
+    <div class="wrapper" style="width:100%">
+        <div class="prog-bar">
+            <span class="prog-bar-fill" style="width: 0%; height:2px;"></span>
+        </div>
+    </div>
+    <ul class="list-group list-group-flush" id="progress-container"></ul>
+</div>
