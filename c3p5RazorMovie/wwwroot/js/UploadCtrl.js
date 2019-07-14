@@ -103,7 +103,7 @@ $(document).ready(function () {
 
         //유효성 검사 
         if (!$(this).valid()) return false;
-
+        
         
         //abort(X)를 지움
         $(".abort").text('');
@@ -164,7 +164,7 @@ $(document).ready(function () {
                             xhr.setRequestHeader("XSRF-TOKEN",
                                 $('input:hidden[name="__RequestVerificationToken"]').val());
                         },
-                        
+
                         xhr: function () {
 
                             var xhr = $.ajaxSettings.xhr();
@@ -197,14 +197,18 @@ $(document).ready(function () {
                         $("#per").text("");
                         clearFileInput();
                         $('#progress-container').empty();
-                       
+
 
                         $(".prog-bar-fill").css("width", "0%").text("");
 
                         location.href = "/Movies/Index";
 
-                        
+
                     });
+                } else {
+
+                    location.href = "/Movies/Index";
+
                 }
                 
             },
